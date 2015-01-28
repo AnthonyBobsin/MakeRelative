@@ -1,0 +1,23 @@
+
+<ion-view title="Home">
+  <ion-content class="has-header">
+    <label class="item item-input item-floating-label">
+      <span class="input-label">Location</span>
+      <input type="text" placeholder="Location" ng-model="formData.userLocation">
+    </label>
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="weatherRequest()">Get Weather</button>
+      </div>
+    <span id="message"></span>
+  </ion-content>
+</ion-view>
+
+<!--<ion-view title="Home">
+  <ion-content class="has-header">
+    Display current location's weather data
+    <h3>{{city}}</h3>
+    <h5><weather-icon icon="current.icon" id="current-icon"></weather-icon> {{current.currently.summary}}</h5>
+    <p>The temperature now is</p>  
+  <span class="large">{{current.currently.temperature}} ° </span>
+  </ion-content>
+</ion-view>-->
