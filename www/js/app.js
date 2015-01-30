@@ -54,6 +54,11 @@ $stateProvider
           controller: 'SettingsCtrl'
         }
       }
+    })
+    .state('results', {
+      url: '/results',
+      templateUrl: 'templates/results.html',
+      controller: 'HomeCtrl'
     });
 // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');

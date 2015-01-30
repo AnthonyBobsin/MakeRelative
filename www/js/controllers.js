@@ -1,7 +1,7 @@
 angular.module('starter.controllers', ['ionic'])
 .constant('FORECASTIO_KEY', '94554c8a6559d0c2c5cd86c818780f32')
 .constant('GEOCODE_KEY', 'AIzaSyD7n4UdliKbLCTfpZ6D-mwERJqs8Ro-2Gw')
-.controller('HomeCtrl', function($scope, $state, Weather, DataStore, Geocode) {
+.controller('HomeCtrl', function($scope, $rootScope, $state, Weather, DataStore, Geocode) {
     
     console.log('inside home');
     var lat;
@@ -16,7 +16,8 @@ angular.module('starter.controllers', ['ionic'])
         lat = resp.data['results'][0]['geometry']['location']['lat'];
         lng = resp.data['results'][0]['geometry']['location']['lng'];
         Weather.getCurrentWeather(lat,lng).then(function(respo) {
-          document.getElementById('message').textContent = Math.round(respo.data['currently']['temperature']);
+          //document.getElementById('message').textContent = Math.round(respo.data['currently']['temperature']);
+          setValues(respo.data);
         }, function(error) {
           alert('Unable to get current conditions');
           console.error(error);
@@ -26,6 +27,13 @@ angular.module('starter.controllers', ['ionic'])
       });
     }
 
+    var setValues = function(data) {
+      $rootScope.temperature = data['currently']['temperature'];
+      $rootScope.feelsLike = data['currently']['apparentTemperature'];
+      $rootScope.high = data['daily']['data'][0]['temperatureMax'];
+      $rootScope.low = data['daily']['data'][0]['temperatureMin'];
+      $rootScope.humidity = data['currently']['humidity'];
+    }
 
 
     /*read default settings into scope
