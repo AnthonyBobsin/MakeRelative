@@ -18,7 +18,6 @@ angular.module('starter.controllers', ['ionic'])
     $rootScope.windSpeed = 'Loading...';
     $rootScope.pChance = 'Loading...';
     $rootScope.humidity = 'Loading...';
-    initSkycon("icon", clear-day);
 
     $rootScope.weekSummaryY = 'Loading...';
     $rootScope.sumY = 'Loading...';
@@ -29,7 +28,6 @@ angular.module('starter.controllers', ['ionic'])
     $rootScope.windSpeedY = 'Loading...';
     $rootScope.pChanceY = 'Loading...';
     $rootScope.humidityY = 'Loading...';
-    initSkycon("iconY", clear-day);
 
     $scope.weatherRequest = function() {
       Geocode.getLocation($scope.formData.userLocation).then(function(resp) {
