@@ -28,11 +28,11 @@ angular.module('starter.controllers', ['ionic'])
     }
 
     var setValues = function(data) {
-      $rootScope.temperature = data['currently']['temperature'];
-      $rootScope.feelsLike = data['currently']['apparentTemperature'];
-      $rootScope.high = data['daily']['data'][0]['temperatureMax'];
-      $rootScope.low = data['daily']['data'][0]['temperatureMin'];
-      $rootScope.humidity = data['currently']['humidity'];
+      $rootScope.temperature = Math.round(data['currently']['temperature']);
+      $rootScope.feelsLike = Math.round(data['currently']['apparentTemperature']);
+      $rootScope.high = Math.round(data['daily']['data'][0]['temperatureMax']);
+      $rootScope.low = Math.round(data['daily']['data'][0]['temperatureMin']);
+      $rootScope.humidity = Math.round(data['currently']['humidity']);
     }
 
 

@@ -55,6 +55,7 @@ $stateProvider
         }
       }
     })
+
     .state('results', {
       url: '/results',
       templateUrl: 'templates/results.html',
