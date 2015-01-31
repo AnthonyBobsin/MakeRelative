@@ -1,0 +1,44 @@
+/* Variables */
+
+$white-gray: #E2E2E2;
+
+/* Home Page */
+
+#linkbutt {
+	text-decoration: none;
+}
+
+
+/* Results Page */
+
+#topResult {
+
+}
+
+#midResult {
+
+}
+
+#botResult {
+	.row {
+		padding-top: 10px;
+		border-top: 1px solid $white-gray;
+	}
+}
+
+#icon, #iconY {
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.vertAlign {
+	padding-top: 8px;
+}
+
+.centerResults {
+	text-align: center;
+	line-height: 110%;
+}

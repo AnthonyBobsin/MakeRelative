@@ -16,6 +16,10 @@ var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY',
     //getAtLocation: function(lat, lng) {
     getCurrentWeather: function(lat, lng) {
       return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK&units=si');
+    },
+    getYesterdayWeather: function(lat, lng) {
+      var seconds = (new Date).getTime();
+      return $http.jsonp(url + lat + ',' + lng + ',' + ((seconds / 1000 | 0) - 86400) + '?callback=JSON_CALLBACK&units=si');
     }
   }
 }];

@@ -1,32 +1,159 @@
 <ion-view title="Results" name="results">
 	<ion-content class="has-header">
-		<div class="row">
-			<div class="col-33 col-offset-33">
-				Yesterday
-			</div>
-			<div class="col-33">
-				Current
+		<div class="row" id="topResult">
+			<div class="padding">
+				<h4 class="centerResults">{{ userLocation }}</h4>
+				<p class="centerResults">{{ weekSummary }}</p>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-33">
-				<p>Temperature</p>
-				<p>Feels Like</p>
-				<p>High / Low</p>
-				<p>Humidity</p>
+			<div class="col-50">
+				<h5 class="centerResults">Yesterday</h5>
 			</div>
-			<div class="col-33">
-				<p>{{ temperatureY }}</p>
-				<p>{{ feelsLikeY }}</p>
-				<p>{{ highY }} / {{ lowY }}</p>
-				<p>{{ humidityY }}</p>
-			</div>
-			<div class="col-33">
-				<p>{{ temperature }}</p>
-				<p>{{ feelsLike }}</p>
-				<p>{{ high }} / {{ low }}</p>
-				<p>{{ humidity }}</p>
+			<div class="col-50">
+				<h5 class="centerResults">Current</h5>
 			</div>
 		</div>
+		<div class="row" id="midResult">
+			<div class="col-50">
+				<canvas id="iconY" width="128" height="128"></canvas></br>
+				<p class="centerResults">{{ sumY }}</p>
+			</div>
+			<div class="col-50">
+				<canvas id="icon" width="128" height="128"></canvas></br>
+				<p class="centerResults">{{ sum }}</p>
+			</div>
+		</div>
+
+		<div id="botResult">
+			<div class="row">
+				<div class="col-33">
+					<p class="centerResults">
+						{{ temperatureY }}˚
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						Temperature
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						{{ temperature }}˚
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-33">
+					<p class="centerResults vertAlign">
+						{{ feelsLikeY }}˚
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						Apparent Temperature
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults vertAlign">
+						{{ feelsLike }}˚
+					</p>
+				</div>
+			</div><div class="row">
+				<div class="col-33">
+					<p class="centerResults">
+						{{ highY }}˚ / {{ lowY }}˚
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						High / Low
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						{{ high }}˚ / {{ lowY }}˚
+					</p>
+				</div>
+			</div><div class="row">
+				<div class="col-33">
+					<p class="centerResults vertAlign">
+						{{ pChanceY }}%
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						Precipitation Chance
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults vertAlign">
+						{{ pChance }}%
+					</p>
+				</div>
+			</div><div class="row">
+				<div class="col-33">
+					<p class="centerResults">
+						{{ humidityY }}%
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						Humidity
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						{{ humidity }}%
+					</p>
+				</div>
+			</div><div class="row">
+				<div class="col-33">
+					<p class="centerResults">
+						{{ windSpeedY }}mph
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						Wind Speed
+					</p>
+				</div>
+				<div class="col-33">
+					<p class="centerResults">
+						{{ windSpeed }}mph
+					</p>
+				</div>
+			</div>
+
+
+
+
+
+
+			<!--<div class="col-33">
+				<p class="centerResults">{{ temperatureY }}˚</p>
+				<p class="centerResults">{{ feelsLikeY }}˚</p>
+				<p class="centerResults">{{ highY }}˚ / {{ lowY }}˚</p>
+				<p class="centerResults">{{ pChanceY }}</p>
+				<p class="centerResults">{{ humidityY }}</p>
+				<p class="centerResults">{{ windSpeedY }}</p>
+			</div>
+			<div class="col-33">
+				<p class="centerResults">Temperature</p>
+				<p class="centerResults">Feels Like</p>
+				<p class="centerResults">High / Low</p>
+				<p class="centerResults">Precipitation Chance</p>
+				<p class="centerResults">Humidity</p>
+				<p class="centerResults">Wind Speed</p>
+			</div>
+			<div class="col-33">
+				<p class="centerResults">{{ temperature }}˚</p>
+				<p class="centerResults">{{ feelsLike }}˚</p>
+				<p class="centerResults">{{ high }}˚ / {{ low }}˚</p>
+				<p class="centerResults">{{ pChance }}</p>
+				<p class="centerResults">{{ humidity }}</p>
+				<p class="centerResults">{{ windSpeed }}</p>
+			</div>
+		</div>-->
 	</ion-content>
 </ion-view>
