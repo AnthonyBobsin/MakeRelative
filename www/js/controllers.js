@@ -11,6 +11,7 @@ angular.module('starter.controllers', ['ionic'])
 
     //$scope.myWidth = getWindowWidth();
 
+    $scope.myWidth = 375;
 
     Geocode.getLocation(/*$scope.formData.userLocation*/'Toronto').then(function(resp) {
       console.log('in geocode request');
