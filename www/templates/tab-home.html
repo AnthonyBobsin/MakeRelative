@@ -1,5 +1,5 @@
 
-<ion-view title="Home">
+<!--<ion-view title="Home">
   <ion-content class="has-header">
     <div class="list">
       <label class="item item-input item-floating-label">
@@ -14,7 +14,7 @@
   </ion-content>
 </ion-view>
 
-<!--<ion-view title="Home">
+<ion-view title="Home">
   <ion-content class="has-header">
     Display current location's weather data
     <h3>{{city}}</h3>
@@ -23,3 +23,52 @@
   <span class="large">{{current.currently.temperature}} ° </span>
   </ion-content>
 </ion-view>-->
+
+<ion-view title="Home">
+  <ion-content class="has-header">
+    <div class="row">
+      <div class="col-20">
+        <i class="icon ion-ios-search-strong padding"></i>
+      </div>
+      <div class="col-20 col-offset-20">
+        <h3 class="centerResults padding-top">Today</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-50 col-offset-10">
+        <h2 class="mainTemp">{{ temperature }}</h2>
+      </div>
+      <div class="col-20">
+        <div class="row sideTemp">
+          <i class="ion-arrow-up-c"></i>
+          <p>{{ high }}</p>
+        </div>
+        <div class="row sideTemp">
+          <i class="ion-arrow-down-c"></i>
+          <p>{{ low }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-80 col-offset-10">
+        <canvas id="icon" width="128" height="128"></canvas></br>
+        <h3 class="centerResults sentences">{{ sum }}</h3>
+      </div>
+    </div></br>
+    <div class="row">
+      <div class="col-33">
+        <i class="ion-umbrella centerResults"></i></br>
+        <h4 class="centerResults">{{ pChance }}</h4>
+      </div>
+      
+      <div class="col-33">
+        <i class="ion-speedometer centerResults"></i></br>
+        <h4 class="centerResults">{{ windSpeed }}</h4>
+      </div>
+      <div class="col-33">
+        <i class="ion-thermometer centerResults"></i></br>
+        <h4 class="centerResults">{{ humidity }}</h4>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

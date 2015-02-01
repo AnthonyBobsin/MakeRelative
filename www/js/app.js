@@ -19,7 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   });
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 $stateProvider
 // setup an abstract state for the tabs directive
     .state('tab', {
@@ -62,4 +62,5 @@ $stateProvider
     });
 // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
+  $ionicConfigProvider.tabs.position('bottom');
 });

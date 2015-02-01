@@ -9,28 +9,32 @@ angular.module('starter.controllers', ['ionic'])
 
     $scope.formData = {};
 
-    $rootScope.weekSummary = 'Loading...';
-    $rootScope.sum = 'Loading...';
-    $rootScope.temperature = 'Loading...';
-    $rootScope.feelsLike = 'Loading...';
-    $rootScope.high = 'Loading...';
-    $rootScope.low = 'Loading...';
-    $rootScope.windSpeed = 'Loading...';
-    $rootScope.pChance = 'Loading...';
-    $rootScope.humidity = 'Loading...';
-
-    $rootScope.weekSummaryY = 'Loading...';
-    $rootScope.sumY = 'Loading...';
-    $rootScope.temperatureY = 'Loading...';
-    $rootScope.feelsLikeY = 'Loading...';
-    $rootScope.highY = 'Loading...';
-    $rootScope.lowY = 'Loading...';
-    $rootScope.windSpeedY = 'Loading...';
-    $rootScope.pChanceY = 'Loading...';
-    $rootScope.humidityY = 'Loading...';
+    Geocode.getLocation(/*$scope.formData.userLocation*/'Toronto').then(function(resp) {
+      console.log('in geocode request');
+      lat = resp.data['results'][0]['geometry']['location']['lat'];
+      lng = resp.data['results'][0]['geometry']['location']['lng'];
+      setLocationValues(resp.data);
+      Weather.getYesterdayWeather(lat,lng).then(function(respo) {
+        setYesterdayValues(respo.data);
+        },
+        function(error) {
+          alert('Unable to get yesterdays conditions');
+          console.error(error);
+      });
+      Weather.getCurrentWeather(lat,lng).then(function(respo) {
+        setValues(respo.data);
+        },
+        function(error) {
+          alert('Unable to get current conditions');
+          console.error(error);
+      });
+    }, 
+    function(error) {
+      console.log(error);
+    });
 
     $scope.weatherRequest = function() {
-      Geocode.getLocation($scope.formData.userLocation).then(function(resp) {
+      Geocode.getLocation(/*$scope.formData.userLocation*/'Toronto').then(function(resp) {
         console.log('in geocode request');
         lat = resp.data['results'][0]['geometry']['location']['lat'];
         lng = resp.data['results'][0]['geometry']['location']['lng'];
@@ -61,12 +65,12 @@ angular.module('starter.controllers', ['ionic'])
       $rootScope.weekSummary = data['daily']['summary'];
       $rootScope.sum = data['daily']['data'][0]['summary'];
       $rootScope.temperature = Math.round(data['currently']['temperature']);
-      $rootScope.feelsLike = Math.round(data['currently']['apparentTemperature']);
-      $rootScope.high = Math.round(data['daily']['data'][0]['temperatureMax']);
-      $rootScope.low = Math.round(data['daily']['data'][0]['temperatureMin']);
-      $rootScope.windSpeed = Math.round(data['currently']['windSpeed']);
-      $rootScope.pChance = Math.round((data['currently']['precipProbability'] * 100));
-      $rootScope.humidity = (data['currently']['humidity'] * 100);
+      $rootScope.feelsLike = Math.round(data['currently']['apparentTemperature']) + '˚';
+      $rootScope.high = Math.round(data['daily']['data'][0]['temperatureMax']) + '˚';
+      $rootScope.low = Math.round(data['daily']['data'][0]['temperatureMin']) + '˚';
+      $rootScope.windSpeed = Math.round(data['currently']['windSpeed']) + 'mph';
+      $rootScope.pChance = Math.round((data['currently']['precipProbability'] * 100)) + '%';
+      $rootScope.humidity = (data['currently']['humidity'] * 100) + '%';
       var skyVar = data['currently']['icon'];
       initSkycon("icon", skyVar);
     }
