@@ -1,13 +1,16 @@
 angular.module('starter.controllers', ['ionic'])
 .constant('FORECASTIO_KEY', '94554c8a6559d0c2c5cd86c818780f32')
 .constant('GEOCODE_KEY', 'AIzaSyD7n4UdliKbLCTfpZ6D-mwERJqs8Ro-2Gw')
-.controller('HomeCtrl', function($scope, $rootScope, $state, Weather, DataStore, Geocode) {
+.controller('HomeCtrl', function($scope, $rootScope, $state, $ionicSideMenuDelegate, Weather, DataStore, Geocode) {
     
     console.log('inside home');
     var lat;
     var lng;
 
     $scope.formData = {};
+
+    //$scope.myWidth = getWindowWidth();
+
 
     Geocode.getLocation(/*$scope.formData.userLocation*/'Toronto').then(function(resp) {
       console.log('in geocode request');
@@ -55,11 +58,15 @@ angular.module('starter.controllers', ['ionic'])
         console.log(error);
       });
       $state.go('results');
-    }
+    };
+
+    $scope.toggleLeft = function() {
+      $ionicSideMenuDelegate.toggleLeft();
+    };
 
    var setLocationValues = function(data) {
     $rootScope.userLocation = data['results'][0]['formatted_address'];
-   }
+   };
 
     var setValues = function(data) {
       $rootScope.weekSummary = data['daily']['summary'];
@@ -73,7 +80,7 @@ angular.module('starter.controllers', ['ionic'])
       $rootScope.humidity = (data['currently']['humidity'] * 100) + '%';
       var skyVar = data['currently']['icon'];
       initSkycon("icon", skyVar);
-    }
+    };
 
     var setYesterdayValues = function(data) {
       $rootScope.temperatureY = Math.round(data['currently']['temperature']);
@@ -86,13 +93,13 @@ angular.module('starter.controllers', ['ionic'])
       $rootScope.humidityY = (data['currently']['humidity'] * 100);
       var skyVarY = data['currently']['icon'];
       initSkycon("iconY", skyVarY);
-    }
+    };
 
     var initSkycon = function(icon, skyVar) {
       var skycons = new Skycons({"color": "#387ef5"}, {"resizeClear": true});
       skycons.add(icon, skyVar);
       skycons.play();
-    }
+    };
 
 })
 .controller('LocationsCtrl', function($scope,$state, Cities,DataStore) {

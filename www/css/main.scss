@@ -44,7 +44,18 @@ p, h1, h2, h3, h4, h5, h6 {
 	font-size: 40px;
 	display: inline-block;
 	width: 100%;
+}
 
+.ion-ios-arrow-back {
+	display: inline-block;
+	margin: 40px 0 0 10px;
+	font-size: 50px;
+}
+
+.ion-ios-arrow-forward {
+	display: inline-block;
+	margin: 40px 10px 0 0;
+	font-size: 50px;
 }
 
 #icon, #iconY {
