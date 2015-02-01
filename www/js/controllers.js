@@ -86,12 +86,12 @@ angular.module('starter.controllers', ['ionic'])
     var setYesterdayValues = function(data) {
       $rootScope.temperatureY = Math.round(data['currently']['temperature']);
       $rootScope.sumY = data['daily']['data'][0]['summary'];
-      $rootScope.feelsLikeY = Math.round(data['currently']['apparentTemperature']);
-      $rootScope.highY = Math.round(data['daily']['data'][0]['temperatureMax']);
-      $rootScope.lowY = Math.round(data['daily']['data'][0]['temperatureMin']);
-      $rootScope.windSpeedY = Math.round(data['currently']['windSpeed']);
-      $rootScope.pChanceY = Math.round((data['currently']['precipProbability'] * 100));
-      $rootScope.humidityY = (data['currently']['humidity'] * 100);
+      $rootScope.feelsLikeY = Math.round(data['currently']['apparentTemperature']) + '˚';
+      $rootScope.highY = Math.round(data['daily']['data'][0]['temperatureMax']) + '˚';
+      $rootScope.lowY = Math.round(data['daily']['data'][0]['temperatureMin']) + '˚';
+      $rootScope.windSpeedY = Math.round(data['currently']['windSpeed']) + 'mph';
+      $rootScope.pChanceY = Math.round((data['currently']['precipProbability'] * 100)) + '%';
+      $rootScope.humidityY = Math.round((data['currently']['humidity'] * 100)) + '%';
       var skyVarY = data['currently']['icon'];
       initSkycon("iconY", skyVarY);
     };
