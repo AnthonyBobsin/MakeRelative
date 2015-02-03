@@ -1,41 +1,44 @@
 /* Variables */
 /* Universal */
+h3 {
+  font-size: 1.5em; }
+
 /* Home Page */
 #linkbutt {
   text-decoration: none; }
 
 /* Results Page */
 .mainTemp {
-  font-size: 110px;
+  font-size: 9em;
   float: right; }
 
 .sideTemp {
-  margin-top: 40px;
-  padding: 10px 0 0 5px; }
+  margin-top: 40%;
+  padding: 30% 0 0 15%; }
   .sideTemp p {
-    font-size: 17px;
+    font-size: 1.3em;
     padding: 7px 0 0 5px; }
 
 .ion-ios-search-strong {
-  font-size: 32px; }
+  font-size: 3em; }
 
 .ion-arrow-down-c, .ion-arrow-up-c {
-  font-size: 32px; }
+  font-size: 3em; }
 
 .ion-umbrella, .ion-thermometer, .ion-speedometer {
-  font-size: 40px;
+  font-size: 3em;
   display: inline-block;
   width: 100%; }
 
 .ion-ios-arrow-back {
   display: inline-block;
-  margin: 40px 0 0 10px;
-  font-size: 50px; }
+  margin: 45% 0 0 15%;
+  font-size: 3.5em; }
 
 .ion-ios-arrow-forward {
   display: inline-block;
-  margin: 40px 10px 0 0;
-  font-size: 50px; }
+  margin: 45% 15% 0 0;
+  font-size: 3.5em; }
 
 #icon, #iconY {
   padding-left: 0;
@@ -45,7 +48,7 @@
   display: block; }
 
 .vertAlign {
-  padding-top: 8px; }
+  padding-top: 10%; }
 
 .centerResults {
   text-align: center;
